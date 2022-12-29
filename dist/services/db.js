@@ -5,6 +5,9 @@ const database = new sqlite(path.resolve('databasefile.db'), { fileMustExist: tr
 function query(sql) {
     return database.prepare(sql).all();
 }
+function run(sql, params) {
+    return database.prepare(sql).run(params);
+}
 module.exports = {
-    query
+    query, run
 };
